@@ -62,9 +62,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: tfplan
-      
-      - name: Unzip tfplan
-        run: unzip -o tfplan
 
       - name: Setup AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
