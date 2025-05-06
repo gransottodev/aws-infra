@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket = "terraform-state"
     key    = "terraform.tfstate"
-    region = "eu-central-1"
+    region = "us-east-1"
   }
 }
 
@@ -23,4 +23,8 @@ provider "aws" {
 
 module "network" {
   source = "./network"
+}
+
+module "tfstate" {
+  source = "./config"
 }
