@@ -32,7 +32,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform plan
-        run: terraform plan -out=tfplan.out
+        run: terraform plan -out=tfplan
         env:
           TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -61,10 +61,10 @@ jobs:
       - name: Download tfplan
         uses: actions/download-artifact@v4
         with:
-            name: tfplan.out
+            name: tfplan
       
       - name: Unzip tfplan
-        run: unzip -o tfplan.out
+        run: unzip -o tfplan
 
       - name: Setup AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
