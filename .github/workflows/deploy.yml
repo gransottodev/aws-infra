@@ -62,9 +62,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: tfplan
-            
-      - name: Display structure of downloaded files
-        run: ls -R your/destination/dir
       
       - name: Unzip tfplan
         run: unzip tfplan.zip
