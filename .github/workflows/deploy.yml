@@ -64,7 +64,7 @@ jobs:
             name: tfplan
       
       - name: Unzip tfplan
-        run: unzip tfplan.zip
+        run: unzip tfplan
 
       - name: Setup AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
