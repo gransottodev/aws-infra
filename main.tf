@@ -7,13 +7,15 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "terraform-state"
+    bucket = "my-tf-state-aws-bucket-dev"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
 }
 
 provider "aws" {
+  region = "us-east-1"
+
   default_tags {
     tags = {
       ManagedBy = "Terraform"
@@ -23,8 +25,4 @@ provider "aws" {
 
 module "network" {
   source = "./network"
-}
-
-module "tfstate" {
-  source = "./config"
 }
