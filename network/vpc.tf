@@ -92,3 +92,10 @@ resource "aws_route" "private_route_to_nat" {
   depends_on            = [aws_nat_gateway.vpc_nat_gw]
 }
 
+output "private_subnet" {
+  value = aws_subnet.private_subnet.id
+}
+
+output "vpc_id" {
+  value = aws_vpc.main.id
+}

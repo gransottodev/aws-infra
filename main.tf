@@ -26,3 +26,14 @@ provider "aws" {
 module "network" {
   source = "./network"
 }
+
+module "repositories" {
+  source = "./repositories"
+}
+
+module "ecs" {
+  source         = "./ecs"
+  repository_url = module.repositories.products_service_url
+  private_subnet = module.network.private_subnet
+  vpc_id         = module.network.vpc_id
+}
