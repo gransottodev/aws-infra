@@ -1,5 +1,6 @@
 name: Create Infra
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
